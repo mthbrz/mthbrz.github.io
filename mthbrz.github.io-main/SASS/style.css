@@ -1,0 +1,484 @@
+:root {
+  --location-color: rgba(234, 234, 234, 1);
+  --background-color: rgba(246, 246, 246, 1);
+  --light-green: rgba(153, 226, 208, 1);
+  --dark-green: rgba(0, 135, 102, 1);
+  --light-blue: rgba(137, 200, 250, 1);
+  --dark-blue: rgba(0, 58, 104, 1);
+  --purple: rgba(147, 86, 220, 1);
+}
+
+body {
+  font-family: "roboto", sans-serif;
+  margin: 0;
+}
+
+/* header */
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 0 1em rgba(0, 0, 0, 0.5);
+}
+header img {
+  margin: 20px;
+}
+
+.location {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 17px;
+  background-color: var(--location-color);
+  width: 100%;
+  border-top: groove 4px rgba(0, 0, 0, 0.15);
+}
+
+/* presentation */
+.presentation {
+  padding: 30px;
+  padding-top: 50px;
+  padding-bottom: 60px;
+  background-color: var(--background-color);
+}
+
+.explore {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 10px;
+}
+.explore h1 {
+  font-size: 24px;
+  font-weight: 700;
+  margin: 0;
+}
+.explore p {
+  font-size: 18px;
+  font-weight: 300;
+}
+
+.btn {
+  background: linear-gradient(rgb(255, 121, 218), rgb(147, 86, 220));
+  border-radius: 25px;
+  padding: 15px;
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 500;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  transition: opacity 500ms, filter 500ms, transform 300ms 200ms;
+}
+
+.btn:hover {
+  opacity: 0.8;
+  filter: drop-shadow(8px 8px 8px rgba(0, 0, 0, 0.25));
+  transform: scale(1.01);
+}
+
+/* Fonctionnement */
+.function {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 30px;
+}
+.function h2 {
+  margin-left: 20px;
+  margin-top: 50px;
+  margin-bottom: 0;
+}
+@media only screen and (min-width: 1025px) {
+  .function {
+    padding-bottom: 30px;
+    padding-left: 180px;
+    padding-right: 180px;
+  }
+  .function h2 {
+    margin-left: 0;
+  }
+}
+
+.function-links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0;
+}
+.function-links li {
+  padding: 0.5rem;
+  counter-increment: list;
+  width: 90%;
+}
+.function-links li::before {
+  content: counter(list);
+  background-color: var(--purple);
+  color: white;
+  border-radius: 50%;
+  padding: 0.2rem 0.5rem;
+  position: relative;
+  top: 50px;
+  right: 10px;
+  z-index: 1;
+}
+@media only screen and (min-width: 1025px) {
+  .function-links {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    gap: 20px;
+  }
+}
+
+.sub-function {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: var(--background-color);
+  border-radius: 20px;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15));
+}
+.sub-function i {
+  margin: 30px;
+  margin-left: 40px;
+}
+@media only screen and (min-width: 1025px) {
+  .sub-function p {
+    margin-right: 20px;
+  }
+}
+
+ul {
+  list-style-type: none;
+}
+
+.fa-store {
+  color: var(--purple);
+}
+
+/* Restaurants */
+.restaurants {
+  background-color: var(--background-color);
+  padding-top: 30px;
+  padding-bottom: 60px;
+}
+.restaurants h2 {
+  margin-left: 20px;
+  margin-top: 0;
+}
+@media only screen and (min-width: 1025px) {
+  .restaurants {
+    padding-left: 180px;
+    padding-right: 180px;
+  }
+  .restaurants h2 {
+    margin-left: 0;
+  }
+}
+
+.restaurant {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+}
+@media only screen and (min-width: 1025px) {
+  .restaurant {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 50px;
+  }
+}
+
+.card-restaurant {
+  background-color: white;
+  width: 90%;
+  height: 250px;
+  border-radius: 15px;
+}
+.card-restaurant a {
+  height: 250px;
+  text-decoration: none;
+}
+@media only screen and (min-width: 1025px) {
+  .card-restaurant {
+    width: 45%;
+  }
+}
+
+.restaurant-image {
+  height: 70%;
+}
+.restaurant-image img {
+  height: 100%;
+  width: 100%;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  -o-object-fit: cover;
+  object-fit: cover;
+}
+
+.restaurant-info {
+  height: 30%;
+  color: black;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.restaurant-info h3 {
+  margin: 10px;
+  font-size: 18px;
+  font-weight: 700;
+}
+.restaurant-info p {
+  margin: 10px;
+  font-size: 17px;
+  font-weight: 300;
+}
+.restaurant-info i {
+  margin: 20px;
+}
+
+.new {
+  background-color: var(--light-green);
+  color: var(--dark-green);
+  width: 80px;
+  height: 29px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  margin: 20px;
+  border-radius: 2px;
+}
+
+.tag {
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* footer */
+footer {
+  display: flex;
+  flex-direction: column;
+  color: white;
+  background-color: rgb(53, 53, 53);
+  margin: 0;
+  padding: 30px;
+}
+footer img {
+  color: white;
+  height: 20px;
+  filter: invert(1);
+}
+footer li {
+  list-style: none;
+  font-weight: 400;
+  margin-top: 10px;
+}
+footer a {
+  color: white;
+  text-decoration: none;
+}
+footer i {
+  padding-right: 13px;
+}
+@media only screen and (min-width: 1025px) {
+  footer {
+    padding-bottom: 0;
+  }
+  footer img {
+    margin: 40px;
+    margin-bottom: 15px;
+  }
+}
+
+@media only screen and (min-width: 1025px) {
+  .footer-links {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row-reverse;
+  }
+  .footer-links ul {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    margin-right: 40px;
+    margin-bottom: 0;
+  }
+}
+
+ul {
+  padding: 0;
+}
+
+i.fa-solid.fa-handshake-angle {
+  padding-right: 7px;
+}
+
+.bold {
+  font-weight: 500;
+}
+
+/* animations */
+.fa-regular.fa-heart {
+  transition: transform 1.5s;
+  font-size: 25px;
+}
+
+.fa-regular.fa-heart:active {
+  font-size: 25px;
+  background: -webkit-linear-gradient(
+    90deg,
+    rgb(255, 121, 218),
+    rgb(147, 86, 220)
+  );
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: fontawesome;
+  transform: scale(1);
+  animation-duration: 1.5s;
+  animation-name: fadeIn;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0.2;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+.fa-regular.fa-heart:not(:active) {
+  animation-duration: 600ms;
+  animation-name: fadeOut;
+}
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0.2;
+  }
+}
+
+@media only screen and (min-width: 1025px) {
+  .fa-regular.fa-heart:hover {
+    font-size: 25px;
+    background: -webkit-linear-gradient(
+      90deg,
+      rgb(255, 121, 218),
+      rgb(147, 86, 220)
+    );
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: fontawesome;
+    transform: scale(1);
+    animation-duration: 1.5s;
+    animation-name: fadeIn;
+  }
+  @keyframes fadeIn {
+    from {
+      opacity: 0.2;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+
+  .fa-regular.fa-heart:not(:hover) {
+    animation-duration: 600ms;
+    animation-name: fadeOut;
+  }
+  @keyframes fadeOut {
+    from {
+      opacity: 1;
+    }
+
+    to {
+      opacity: 0.2;
+    }
+  }
+}
+
+/* loader */
+
+.load {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  font-size: 2rem;
+  position: fixed;
+  top: 0;
+  height: 100%;
+  background: #000000ba;
+  width: 100%;
+  z-index: 10;
+  animation: disappear 3s ease-in-out forwards;
+}
+
+@keyframes disappear {
+  from {
+    visibility: visible;
+  }
+  to {
+    visibility: hidden;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .load {
+    font-size: 3rem;
+  }
+}
+
+.load__bar {
+  opacity: 0;
+  transform: translateY(-20px);
+  animation: appear 1s ease-out forwards;
+}
+.load__bar i {
+  font-family: fontawesome;
+  background: -webkit-linear-gradient(rgb(255, 121, 218), rgb(147, 86, 220));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: translateY(-100px) rotate(360deg);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.load__bar:nth-child(1) {
+  animation-delay: 0.3s;
+}
+.load__bar:nth-child(2) {
+  animation-delay: 0.6s;
+}
+
+.load__bar:nth-child(3) {
+  animation-delay: 0.9s;
+}
+
+.load__bar:nth-child(4) {
+  animation-delay: 1.2s;
+}
+
+.load__bar:nth-child(5) {
+  animation-delay: 1.5s;
+}
+
+.load__bar:nth-child(6) {
+  animation-delay: 1.8s;
+}
