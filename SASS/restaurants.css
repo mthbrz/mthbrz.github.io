@@ -1,3 +1,12 @@
+:root {
+  --location-color: rgba(234, 234, 234, 1);
+  --background-color: rgba(246, 246, 246, 1);
+  --light-green: rgba(153, 226, 208, 1);
+  --dark-green: rgba(0, 135, 102, 1);
+  --light-blue: rgba(137, 200, 250, 1);
+  --dark-blue: rgba(0, 58, 104, 1);
+  --purple: rgba(147, 86, 220, 1);
+}
 body {
   font-family: "roboto", sans-serif;
   margin: 0;
@@ -49,7 +58,7 @@ header a {
 
 /* titre */
 main {
-  background-color: rgb(234, 234, 234);
+  background-color: var(--location-color);
   border-top-left-radius: 50px;
   border-top-right-radius: 50px;
   position: relative;
@@ -59,7 +68,7 @@ main {
 }
 @media only screen and (min-width: 1025px) {
   main {
-    background-color: rgb(234, 234, 234);
+    background-color: var(--location-color);
     margin-left: 10%;
     margin-right: 10%;
   }
@@ -78,7 +87,7 @@ main {
   flex-direction: column;
   align-items: center;
   gap: 18px;
-  background-color: rgb(234, 234, 234);
+  background-color: var(--location-color);
   padding-bottom: 40px;
 }
 .menu a {
@@ -93,7 +102,7 @@ h2 {
 
 hr {
   width: 40px;
-  border: 3px solid rgb(153, 226, 208);
+  border: 3px solid var(--light-green);
   margin: 0;
 }
 
@@ -108,24 +117,21 @@ hr {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: rgb(246, 246, 246);
+  background-color: var(--background-color);
   height: 70px;
   border-radius: 15px;
   padding-left: 20px;
   overflow: hidden;
   opacity: 0;
-  transform: translateX(20px);
   animation: fadeIn 1s ease-out forwards;
 }
 
 @keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translateX(20px);
   }
   to {
     opacity: 1;
-    transform: translateX(0);
   }
 }
 .course:nth-child(1) .description:nth-child(1) {
@@ -283,7 +289,7 @@ i.fa-solid.fa-handshake-angle {
   transition: width 1s ease-in-out;
 }
 
-.ajout:active {
+.ajout:hover {
   transform: translateX(-150%);
 }
 
@@ -292,7 +298,7 @@ i.fa-solid.fa-handshake-angle {
     transform: translateX(-150%);
   }
 }
-.description:active .ajout {
+.description:hover .ajout {
   width: 100%;
   height: 70px;
   border-top-right-radius: 15px;
@@ -305,7 +311,7 @@ i.fa-solid.fa-handshake-angle {
     height: 70px;
     border-top-right-radius: 15px;
     border-bottom-right-radius: 15px;
-    background-color: rgb(153, 226, 208);
+    background-color: var(--light-green);
     overflow: hidden;
   }
 
@@ -332,7 +338,7 @@ i.fa-solid.fa-handshake-angle {
     }
   }
 }
-.description:active .price-container {
+.description:hover .price-container {
   min-width: 100px;
 }
 
@@ -351,7 +357,7 @@ i.fa-solid.fa-handshake-angle {
   font-size: 25px;
 }
 
-.fa-regular.fa-heart:active {
+.fa-regular.fa-heart:hover {
   font-size: 25px;
   background: -webkit-linear-gradient(
     90deg,
@@ -374,7 +380,7 @@ i.fa-solid.fa-handshake-angle {
     opacity: 1;
   }
 }
-.fa-regular.fa-heart:not(:active) {
+.fa-regular.fa-heart:not(:hover) {
   animation-duration: 600ms;
   animation-name: fadeOut;
 }
