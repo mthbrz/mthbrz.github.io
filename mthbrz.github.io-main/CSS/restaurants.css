@@ -10,7 +10,12 @@
 body {
   font-family: "roboto", sans-serif;
   margin: 0;
-  background-color: var(--location-color);
+  background-color: rgb(234, 234, 234);
+}
+@media only screen and (min-width: 1025px) {
+  body {
+    background-color: white;
+  }
 }
 
 h1 {
@@ -20,7 +25,6 @@ h1 {
 }
 
 /* header */
-
 header {
   display: flex;
   flex-direction: row;
@@ -28,11 +32,9 @@ header {
   justify-content: center;
   background-color: white;
 }
-
 header img {
   margin: 20px;
 }
-
 header a {
   text-decoration: none;
   color: black;
@@ -47,15 +49,14 @@ header a {
 }
 
 /* photo */
-
 .photo img {
   width: 100%;
   height: 275px;
+  -o-object-fit: cover;
   object-fit: cover;
 }
 
 /* titre */
-
 main {
   background-color: var(--location-color);
   border-top-left-radius: 50px;
@@ -64,6 +65,13 @@ main {
   margin-top: -50px;
   padding-bottom: 10px;
   z-index: 1;
+}
+@media only screen and (min-width: 1025px) {
+  main {
+    background-color: var(--location-color);
+    margin-left: 10%;
+    margin-right: 10%;
+  }
 }
 
 .title {
@@ -74,7 +82,6 @@ main {
 }
 
 /* menu */
-
 .menu {
   display: flex;
   flex-direction: column;
@@ -82,6 +89,9 @@ main {
   gap: 18px;
   background-color: var(--location-color);
   padding-bottom: 40px;
+}
+.menu a {
+  text-decoration: none;
 }
 
 h2 {
@@ -95,6 +105,7 @@ hr {
   border: 3px solid var(--light-green);
   margin: 0;
 }
+
 .course {
   width: 90%;
   display: flex;
@@ -111,21 +122,19 @@ hr {
   border-radius: 15px;
   padding-left: 20px;
   overflow: hidden;
+  margin-right: 30px;
   opacity: 0;
-  transform: translateX(20px);
   animation: fadeIn 1s ease-out forwards;
 }
+
 @keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translateX(20px);
   }
   to {
     opacity: 1;
-    transform: translateX(0);
   }
 }
-
 .course:nth-child(1) .description:nth-child(1) {
   animation-delay: 0.5s;
 }
@@ -145,13 +154,8 @@ hr {
   overflow: hidden;
   white-space: nowrap;
 }
-
-.menu a {
-  text-decoration: none;
-}
-
 .menu-item h3,
-p {
+.menu-item p {
   margin: 0;
   color: black;
   text-overflow: ellipsis;
@@ -159,12 +163,10 @@ p {
   white-space: nowrap;
   width: 100%;
 }
-
 .menu-item h3 {
   font-size: 18px;
   font-weight: 500;
 }
-
 .menu-item p {
   font-size: 15px;
   font-weight: 300;
@@ -182,10 +184,10 @@ p {
 }
 
 .btn {
-  background: linear-gradient(rgba(255, 121, 218, 1), rgba(147, 86, 220, 1));
+  background: linear-gradient(rgb(255, 121, 218), rgb(147, 86, 220));
   border-radius: 25px;
   padding: 15px;
-  color: rgba(255, 255, 255, 1);
+  color: rgb(255, 255, 255);
   text-decoration: none;
   font-size: 16px;
   font-weight: 500;
@@ -200,43 +202,64 @@ p {
 }
 
 /* footer */
-
 footer {
   display: flex;
   flex-direction: column;
   color: white;
-  background-color: rgba(53, 53, 53, 1);
+  background-color: rgb(53, 53, 53);
   margin: 0;
   padding: 30px;
 }
-
 footer img {
   color: white;
   height: 20px;
   filter: invert(1);
 }
-
-ul {
-  padding: 0;
-}
-
 footer li {
   list-style: none;
   font-weight: 400;
   margin-top: 10px;
 }
-
 footer a {
   color: white;
   text-decoration: none;
 }
+footer i {
+  padding-right: 13px;
+}
+@media only screen and (min-width: 1025px) {
+  footer {
+    padding-bottom: 0;
+  }
+  footer img {
+    margin: 40px;
+    margin-bottom: 15px;
+  }
+}
+
+@media only screen and (min-width: 1025px) {
+  .footer-links {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row-reverse;
+  }
+}
+
+ul {
+  padding: 0;
+}
+@media only screen and (min-width: 1025px) {
+  ul {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    margin-right: 40px;
+    margin-bottom: 0;
+  }
+}
 
 .bold-links li {
   font-weight: 500;
-}
-
-footer i {
-  padding-right: 13px;
 }
 
 i.fa-solid.fa-handshake-angle {
@@ -248,7 +271,6 @@ i.fa-solid.fa-handshake-angle {
 }
 
 /* animations */
-
 .price-container {
   display: flex;
   align-items: flex-end;
@@ -268,21 +290,84 @@ i.fa-solid.fa-handshake-angle {
   transition: width 1s ease-in-out;
 }
 
-.ajout:active {
-  transform: translateX(-150%);
+.ajout:hover {
+  transform: translateX(-150px);
 }
-
-.description:active .ajout {
+.description:hover .ajout {
   width: 100%;
   height: 70px;
   border-top-right-radius: 15px;
   border-bottom-right-radius: 15px;
+  animation: ajoutIn 1s ease-in-out forwards;
+}
+@keyframes ajoutIn {
+  from {
+    width: 0px;
+  }
+  to {
+    width: 70px;
+  }
+}
+.description:not(:hover) .ajout {
+  animation: ajoutOut 1s ease-in-out forwards;
+}
+@keyframes ajoutOut {
+  from {
+    width: 70px;
+  }
+  to {
+    width: 0px;
+  }
 }
 
-.description:active .price-container {
+@media only screen and (min-width: 1025px) {
+  .ajout:hover {
+    transform: translateX(-150%);
+  }
+}
+
+@media only screen and (min-width: 1025px) {
+  .description:hover .ajout {
+    width: 100%;
+    height: 70px;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    background-color: var(--light-green);
+    overflow: hidden;
+  }
+
+  .description:hover .ajout {
+    animation: ajoutIn 1s ease-in-out forwards;
+  }
+  @keyframes ajoutIn {
+    from {
+      width: 0px;
+    }
+    to {
+      width: 70px;
+    }
+  }
+  .description:not(:hover) .ajout {
+    animation: ajoutOut 1s ease-in-out forwards;
+  }
+  @keyframes ajoutOut {
+    from {
+      width: 70px;
+    }
+    to {
+      width: 0px;
+    }
+  }
+}
+.description:hover .price-container {
   min-width: 100px;
 }
 
+@media only screen and (min-width: 1025px) {
+  .description:hover .price-container {
+    min-width: 100px;
+  }
+}
 .fa-solid.fa-circle-check {
   color: white;
 }
@@ -293,7 +378,7 @@ i.fa-solid.fa-handshake-angle {
   font-size: 25px;
 }
 
-.fa-regular.fa-heart:active {
+.fa-regular.fa-heart:hover {
   font-size: 25px;
   background: -webkit-linear-gradient(
     90deg,
@@ -305,15 +390,28 @@ i.fa-solid.fa-handshake-angle {
   font-family: fontawesome;
   transform: scale(1);
   animation-duration: 1.5s;
-  animation-name: fadein;
+  animation-name: fadeIn;
 }
-@keyframes fadein {
+@keyframes fadeIn {
   from {
-    opacity: 0;
+    opacity: 0.2;
   }
 
   to {
     opacity: 1;
+  }
+}
+.fa-regular.fa-heart:not(:hover) {
+  animation-duration: 600ms;
+  animation-name: fadeOut;
+}
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0.2;
   }
 }
 
@@ -330,90 +428,29 @@ i.fa-solid.fa-handshake-angle {
     font-family: fontawesome;
     transform: scale(1);
     animation-duration: 1.5s;
-    animation-name: fadein;
+    animation-name: fadeIn;
   }
-  @keyframes fadein {
+  @keyframes fadeIn {
     from {
-      opacity: 0;
+      opacity: 0.2;
     }
 
     to {
       opacity: 1;
     }
   }
-}
 
-/* responsive desgin */
-
-@media only screen and (min-width: 1025px) {
-  body {
-    background-color: white;
+  .fa-regular.fa-heart:not(:hover) {
+    animation-duration: 600ms;
+    animation-name: fadeOut;
   }
-  main {
-    background-color: var(--location-color);
-    margin-left: 10%;
-    margin-right: 10%;
-  }
-  footer {
-    padding-bottom: 0;
-  }
-  footer img {
-    margin: 40px;
-    margin-bottom: 15px;
-  }
-  .footer-links {
-    display: flex;
-    justify-content: flex-start;
-    flex-direction: row-reverse;
-  }
-  .footer-links ul {
-    display: flex;
-    gap: 30px;
-    align-items: center;
-    margin-right: 40px;
-    margin-bottom: 0;
-  }
-
-  .ajout:hover {
-    transform: translateX(-150%);
-  }
-
-  .description:hover .ajout {
-    width: 100%;
-    height: 70px;
-    border-top-right-radius: 15px;
-    border-bottom-right-radius: 15px;
-  }
-
-  .description:not(:hover) .ajout {
-    animation: backajout 1s ease-in-out forwards;
-  }
-  @keyframes backajout {
+  @keyframes fadeOut {
     from {
-      width: 100px;
+      opacity: 1;
     }
+
     to {
-      width: 0px;
+      opacity: 0.2;
     }
-  }
-
-  .description:hover .price-container {
-    min-width: 100px;
-  }
-
-  .fa-regular.fa-heart {
-    transition: all 1s ease-in-out;
-    font-size: 25px;
-  }
-
-  .fa-regular.fa-heart:hover {
-    font-family: fontawesome;
-    background: -webkit-linear-gradient(
-      90deg,
-      rgba(255, 121, 218, 1),
-      rgba(147, 86, 220, 1)
-    );
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
   }
 }
